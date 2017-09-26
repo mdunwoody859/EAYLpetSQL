@@ -38,10 +38,25 @@ CREATE TABLE IF NOT EXISTS `pets`.`pets` (
   `sex` CHAR(1) NULL DEFAULT NULL,
   `DoB` DATE NULL DEFAULT NULL,
   `DoD` DATE NULL DEFAULT NULL,
+  `neutered` BIT(1) NULL DEFAULT NULL,
+  `priceOfPet` DOUBLE NULL DEFAULT NULL,
+  PRIMARY KEY (`PetId`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `pets`.`Pet_Owner_`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pets`.`Pet_Owner_` (
+  `PetId` INT(11) NULL DEFAULT NULL,
   `OwnerId` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`PetId`),
+  INDEX `PetId` (`PetId` ASC),
   INDEX `OwnerId` (`OwnerId` ASC),
-  CONSTRAINT `pets_ibfk_1`
+  CONSTRAINT `Pet_Owner__ibfk_1`
+    FOREIGN KEY (`PetId`)
+    REFERENCES `pets`.`pets` (`PetId`),
+  CONSTRAINT `Pet_Owner__ibfk_2`
     FOREIGN KEY (`OwnerId`)
     REFERENCES `pets`.`Owner_` (`OwnerId`))
 ENGINE = InnoDB

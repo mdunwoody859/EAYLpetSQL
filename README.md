@@ -5,4 +5,4 @@ Run thefile.sql to generate database.
 
 Queries are inside file.txt.
 
-Sorry for committing to master </3. Michael's computer broke:(
+Sorry for committing to master </3.

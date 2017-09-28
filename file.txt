@@ -1,0 +1,37 @@
+1) select pets.pets.PetName, max(pets.pets.priceOfPet) from pets.pets group by PetName limit 1;
+
+2) select pets.pets.PetName, max(pets.pets.priceOfPet) from pets.pets group by PetName limit 3;
+
+3) select pets.pets.PetName, pets.pets.priceOfPet from pets.pets order by priceOfPet ASC limit 3;
+
+4) select distinct pets.pets.PetName from pets.pets;
+
+5) select distinct pets.pets.PetName from pets.pets;
+
+6) select pets.PetName, pets.priceOfPet from pets.pets join Pet_Owner_ on pets.PetId = Pet_Owner_.PetId where pets.Pet_Owner_.OwnerId is null;
+
+7) select pets.PetName, pets.priceOfPet from pets.pets join Pet_Owner_ on pets.PetId = Pet_Owner_.PetId where pets.Pet_Owner_.OwnerId is null and pets.pets.neutered = 1;
+
+8) select pets.PetName, pets.priceOfPet from pets.pets join Pet_Owner_ on pets.PetId = Pet_Owner_.PetId where pets.Pet_Owner_.OwnerId is not null and pets.pets.neutered = 0;
+
+9) select Owner_.OwnerId, Owner_.FirstName, Owner_.Surname, count(pets.Pet_Owner_.PetId) as NoOfPets from pets.Owner_ join Pet_Owner_ on pets.Owner_.OwnerId = pets.Pet_Owner_.OwnerId group by Owner_.OwnerId;
+
+10) select sum(priceOfPet) from pets.pets;
+
+11) select distinct pets.PetName, count(pets.PetName) as NoOfTimesGiven from pets.pets group by PetName;
+
+12) select distinct Owner_.FirstName, Owner_.Surname, count(Pet_Owner_.PetId) as NumberOfPets from pets.Owner_ join Pet_Owner_ 
+on Pet_Owner_.OwnerId = Owner_.OwnerId where Pet_Owner_.PetId is null group by Owner_.Surname, Owner_.FirstName;
+
+13) select * from pets.pets where (pets.pets.priceOfPet > 9.99 and pets.pets.priceOfPet < 19.99) order by pets.pets.priceOfPet DESC; 
+
+14) select pets.pets.PetName from pets.pets join Pet_Owner_ on Pet_Owner_.PetId = pets.pets.PetId join Owner_ on Owner_.OwnerId = Pet_Owner_.OwnerId
+where Owner_.FirstName = "John" and Owner_.Surname = "Smith";
+
+15) select Owner_.FirstName, Owner_.Surname from Owner_ where Owner_.FirstName like "John%";
+
+16) select Owner_.FirstName, Owner_.Surname from Owner_
+where Owner_.Surname = "Smith" or Owner_.Surname = "Smyth";
+
+17) select Owner_.FirstName, Owner_.Surname from Owner_
+where Owner_.FirstName like "%av%";
